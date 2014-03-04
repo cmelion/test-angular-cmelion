@@ -4,5 +4,6 @@ angular.module('testYeoman')
     .config(function ($urlRouterProvider,$locationProvider) {
         $locationProvider.html5Mode(true);
         $urlRouterProvider.when('', '/');
+        $urlRouterProvider.when('cmelion/test-angular-cmelion', '/');
         $urlRouterProvider.otherwise("/error?code=404");
     });
