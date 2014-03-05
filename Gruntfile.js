@@ -438,7 +438,6 @@ module.exports = function (grunt) {
             }
         },
 
-        //TODO: use gitinfo to set href path
         replace: {
             baseHref: {
                 src: ['dist/index.html'],
