@@ -249,10 +249,6 @@ module.exports = function (grunt) {
             },
             coverage: {
                 configFile: 'karma.conf.js',
-                coverageReporter: {
-                    type: "lcov",
-                    dir: "test/coverage/"
-                },
                 singleRun: true
             }
         },
@@ -459,7 +455,10 @@ module.exports = function (grunt) {
 
         coveralls: {
             options: {
+                serviceName: 'travis',
+                repoToken: 'aYHJQE0ltQN14HLhv0TcQfMV0nBRHQnjH',
                 debug: true,
+                dryRun: false,
                 coverage_dir: 'test/coverage'
             }
         }
