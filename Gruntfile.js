@@ -36,6 +36,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         yeoman: yeomanConfig,
+        gitinfo: {},
         watch: {
             styles: {
                 files: ['<%= yeoman.app %>/styles/**/*.css'],
@@ -435,6 +436,18 @@ module.exports = function (grunt) {
                 ],
                 dest: '<%= yeoman.dist %>/manifest.appcache'
             }
+        },
+
+        //TODO: use gitinfo to set href path
+        replace: {
+            baseHref: {
+                src: ['dist/index.html'],
+                overwrite: true,                 // overwrite matched source files
+                replacements: [{
+                    from: 'base href="/"',
+                    to: 'base href="/test-angular-cmelion/"'
+                }]
+            }
         }
 
     });
@@ -510,9 +523,12 @@ module.exports = function (grunt) {
         'bump'
     ]);
 
-    grunt.registerTask('deploy', [
-        'gh-pages'
-    ]);
+    grunt.registerTask('deploy', function(){
+        grunt.task.run([
+            'replace:baseHref',
+            'gh-pages'
+        ]);
+    });
 
     grunt.registerTask('linkAssets-dev', [
         'sails-linker:devStyles',

@@ -1,5 +1,6 @@
     angular.module('testYeoman')
         .constant('Config', {
+            baseDir:                'test-angular-cmelion',
             viewsDir:               'views/',
             componentsDir:          'components/',
             pagesDir:               'pages/',
