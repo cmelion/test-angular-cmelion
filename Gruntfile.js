@@ -209,6 +209,23 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/',
                 dest: '<%= yeoman.dist %>/',
                 src: ['**/*', '!**/*.{scss,sass,coffee}', '!dev/**/*']
+            },
+            coverage: {
+                expand: true,
+                cwd: 'test/coverage',
+                src: '*/lcov-report/**/*',
+                dest: '<%= yeoman.dist %>/coverage/',
+                rename: function(dest, src) {
+                    var path = require('path');
+
+                    // Remove the first 2 folders from src and place into dest
+                    // Will cause files to overwrite each other if named the same though
+                    var wobase = src.split(path.sep).slice(2).join(path.sep);
+                    var dest1 = path.join(dest, wobase);
+
+                    return dest1;
+                }
+
             }
         },
         concurrent: {
@@ -459,6 +476,7 @@ module.exports = function (grunt) {
                 repoToken: 'aYHJQE0ltQN14HLhv0TcQfMV0nBRHQnjH',
                 debug: true,
                 dryRun: false,
+                force: false,
                 coverage_dir: 'test/coverage'
             }
         }
@@ -543,6 +561,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('deploy', function(){
         grunt.task.run([
+            'karma:coverage',
+            'copy:coverage',
             'gitinfo',
             'replace:baseHref',
             'gh-pages'
