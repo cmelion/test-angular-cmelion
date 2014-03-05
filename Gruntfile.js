@@ -445,7 +445,7 @@ module.exports = function (grunt) {
                 overwrite: true,                 // overwrite matched source files
                 replacements: [{
                     from: 'base href="/"',
-                    to: 'base href="/test-angular-cmelion/"'
+                    to: 'base href="<%= gitinfo.remote.origin.url.substr(gitinfo.remote.origin.url.lastIndexOf("/")).replace(".git","/") %>"'
                 }]
             }
         }
@@ -525,6 +525,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('deploy', function(){
         grunt.task.run([
+            'gitinfo',
             'replace:baseHref',
             'gh-pages'
         ]);
