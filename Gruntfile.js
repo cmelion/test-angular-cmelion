@@ -246,6 +246,14 @@ module.exports = function (grunt) {
             unit: {
                 configFile: 'karma.conf.js',
                 singleRun: true
+            },
+            coverage: {
+                configFile: 'karma.conf.js',
+                coverageReporter: {
+                    type: "lcov",
+                    dir: "test/coverage/"
+                },
+                singleRun: true
             }
         },
         ngmin: {
@@ -447,6 +455,13 @@ module.exports = function (grunt) {
                     to: 'base href="<%= gitinfo.remote.origin.url.substr(gitinfo.remote.origin.url.lastIndexOf("/")).replace(".git","/") %>"'
                 }]
             }
+        },
+
+        coveralls: {
+            options: {
+                debug: true,
+                coverage_dir: 'test/coverage'
+            }
         }
 
     });
@@ -466,7 +481,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', [
-        'karma'
+        'karma:unit'
     ]);
 
     grunt.registerTask('test-e2e', [
@@ -516,6 +531,11 @@ module.exports = function (grunt) {
             ]);
         }
     });
+
+    grunt.registerTask('coverage', [
+        'karma:coverage',
+        'coveralls'
+    ]);
 
     grunt.registerTask('changelog', [
         'changelog',
