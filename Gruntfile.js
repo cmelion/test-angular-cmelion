@@ -472,9 +472,11 @@ module.exports = function (grunt) {
 
         coveralls: {
             options: {
-                debug: true,
+                service_name: 'travis',
+                repo_token: 'ZxL9uCI0txdnhqyyJVeQRFUWrpbINI6Gc',
+                debug: false,
                 dryRun: false,
-                force: true,
+                force: false,
                 coverage_dir: 'test/coverage/'
             }
         }
