@@ -22,6 +22,13 @@
         })
         .factory('APIBaseUrl', function (Config) {
             return (Config.API.protocol + '://' + Config.API.host + ':' + Config.API.port + Config.API.path + '/');
+        })
+        .run(function($animate){
+            var ios5 = navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 5_\d/i);
+            if(ios5) {
+                // Now you can do specific stuff for devices on any version of iOS5
+                $animate.enabled(false);
+            }
         });
 
 
