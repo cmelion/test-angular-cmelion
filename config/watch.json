@@ -1,0 +1,35 @@
+{
+  "options": {
+    "interval": 2007
+  },
+  "styles": {
+    "options": {
+      "livereload": true
+    },
+    "files": [
+      ".tmp/styles/**/*.css"
+    ],
+    "tasks": [
+      "replace:cssSourceMap"
+    ]
+  },
+  "livereload": {
+    "options": {
+      "livereload": "<%= connect.options.livereload %>"
+    },
+    "files": [
+      "<%= yeoman.app %>/**/*.html",
+      "<%= yeoman.app %>/**/*.js",
+      "<%= yeoman.app %>/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}"
+    ]
+  },
+  "sailslinker": {
+    "files": [
+      "<%= yeoman.app %>/**/*.{js}"
+    ],
+    "tasks": [
+      "linkAssets-dev"
+    ]
+  },
+  "yeoman": "{<%= bugfix %>}"
+}

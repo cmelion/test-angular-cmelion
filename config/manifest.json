@@ -1,0 +1,38 @@
+{
+  "generate": {
+    "options": {
+      "yeoman": "{<%= bugfix %>}",
+      "basePath": "<%= yeoman.dist %>/",
+      "cache": [
+        "scripts/scripts.js",
+        "styles/main.css"
+      ],
+      "network": [
+        "*",
+        "http://*",
+        "https://*"
+      ],
+      "exclude": [
+        "js/jquery.min.js"
+      ],
+      "preferOnline": true,
+      "verbose": true,
+      "timestamp": true,
+      "hash": false,
+      "master": [
+        "index.html"
+      ]
+    },
+    "src": [
+      "components/**/*.html",
+      "states/**/*.html",
+      "views/**/*.html",
+      "<%= yeoman.dist %>/scripts/**/*.js",
+      "<%= yeoman.dist %>/styles/**/*.css",
+      "*.{ico,png,txt}",
+      "assets/images/**/*.*",
+      "assets/fonts/**/*.*"
+    ],
+    "dest": "<%= yeoman.dist %>/manifest.appcache"
+  }
+}

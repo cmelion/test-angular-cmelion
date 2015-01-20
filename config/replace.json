@@ -1,0 +1,26 @@
+{
+  "baseHref": {
+    "src": [
+      "dist/index.html"
+    ],
+    "overwrite": true,
+    "replacements": [
+      {
+        "from": "base href=\"/\"",
+        "to": "base href=\"<%= gitinfo.remote.origin.url.substr(gitinfo.remote.origin.url.lastIndexOf(\"/\")).replace(\".git\",\"/\") %>\""
+      }
+    ]
+  },
+  "cssSourceMap": {
+    "src": [
+      ".tmp/styles/main.css.map"
+    ],
+    "overwrite": true,
+    "replacements": [
+      {
+        "from": "/src/",
+        "to": "/"
+      }
+    ]
+  }
+}

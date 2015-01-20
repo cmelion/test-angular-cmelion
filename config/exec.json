@@ -1,0 +1,12 @@
+{
+  "sass_watch": {
+    "command": "sass --watch <%= yeoman.app %>/:.tmp/"
+  },
+  "sass_dev": {
+    "command": "sass <%= yeoman.app %>/styles/main.scss:.tmp/styles/main.css"
+  },
+  "sass_dist": {
+    "command": ""
+  },
+  "yeoman": "{<%= bugfix %>}"
+}

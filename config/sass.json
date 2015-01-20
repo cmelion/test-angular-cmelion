@@ -1,0 +1,19 @@
+{
+  "dist": {
+    "options": {
+      "style": "compressed"
+    },
+    "files": {
+      ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.scss"
+    }
+  },
+  "dev": {
+    "options": {
+      "sourceMap": false
+    },
+    "files": {
+      ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.scss"
+    }
+  },
+  "yeoman": "{<%= bugfix %>}"
+}
