@@ -7,7 +7,7 @@ module.exports = function(config) {
         return appPath + '/' + path;
     };
 
-    var appPath = (require('./bower.json').appPath || 'app');
+    var appPath = (require('./bower.json').appPath || 'src');
     var js = require('./resources.json').javascript;
 
     var jsFiles = js.external.concat(js.app).map(mapAppPath);
@@ -23,16 +23,25 @@ module.exports = function(config) {
         'test/unit/spec/**/*.js',
         appPath + '/views/**/*.html',
         appPath + '/components/**/*.html',
-        appPath + '/pages/**/*.html'
+        appPath + '/states/**/*.html',
+        appPath + '/dev/**/*.json'
     ]);
 
     var preprocessors = {};
 
-    //ng-html2js preprocessor
+    //ng-json2js preprocessor
+    [
+      '**/*.json'
+    ].map(mapAppPath) //append app path to each row
+      .forEach(function (path) {
+        preprocessors[path] = ['json2js']; //insert row
+      });
+
+  //ng-html2js preprocessor
     [
         '/views/**/*.html',
         '/components/**/*.html',
-        '/pages/**/*.html'
+        '/states/**/*.html'
     ].map(mapAppPath) //append app path to each row
         .forEach(function (path) {
             preprocessors[path] = ['ng-html2js']; //insert row
@@ -42,7 +51,7 @@ module.exports = function(config) {
     [
         '/scripts/**/*.js',
         '/components/**/*.js',
-        '/pages/**/*.js'
+        '/states/**/*.js'
     ].map(mapAppPath) //append app path to each row
         .forEach(function (path) {
             preprocessors[path] = ['coverage']; //insert row
@@ -61,11 +70,11 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: files,
 
-        reporters: [/*'spec', */'progress', 'coverage'],
+        reporters: [/*'spec', */'story', 'coverage'],
 
         // optionally, configure the reporter
         coverageReporter: {
-            type : 'lcov',
+            type : 'html',
             dir : 'test/coverage/'
         },
         // list of files / patterns to exclude
@@ -97,7 +106,7 @@ module.exports = function(config) {
             // setting this option will create only a single module that contains templates
             // from all the files, so you can load them all with module('foo')
             moduleName: 'compiledTemplates',
-            stripPrefix: 'app/'
+            stripPrefix: 'src/'
         },
 
 

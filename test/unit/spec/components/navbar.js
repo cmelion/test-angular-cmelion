@@ -7,7 +7,7 @@ describe('Component: navbarComponent', function () {
 
         beforeEach(function () {
 
-            module('testYeoman');
+            module('testAngularCmelion');
 
             inject(function ($rootScope, _$compile_) {
                 scope = $rootScope.$new();
@@ -31,7 +31,7 @@ describe('Component: navbarComponent', function () {
 
         beforeEach(function () {
 
-            module('testYeoman');
+            module('testAngularCmelion');
 
             inject(function ($controller, $rootScope) {
                 scope = $rootScope.$new();
