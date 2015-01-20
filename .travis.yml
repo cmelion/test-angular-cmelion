@@ -7,4 +7,3 @@ before_script:
 
 script:
   - grunt Test-once
-Fix
