@@ -19,13 +19,13 @@ Open a terminal window in the media-relations-client directory
 ```
 npm install
 bower cache clean && bower install
-grunt exec:sass_dev
+grunt Sass-continuos(ruby)  -- this step is optional
 ```
 
 Open another terminal and run
 
 ```
-grunt server
+grunt Run-app
 ```
 to start the local server
 
