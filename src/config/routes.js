@@ -5,7 +5,7 @@
       .config(configFunction);
 
     function configFunction ($urlRouterProvider) {
-      $urlRouterProvider.when('', '/');
+      $urlRouterProvider.when('', '/index');
       $urlRouterProvider.otherwise("/error?code=404");
     }
 

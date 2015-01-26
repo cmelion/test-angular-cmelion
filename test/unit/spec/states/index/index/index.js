@@ -25,7 +25,7 @@ describe('State: Index', function () {
 
 
     it('should respond to URL', function() {
-      expect($state.href(state)).toEqual('#/');
+      expect($state.href(state)).toEqual('#/index');
     });
 
     it('should resolve data', function() {

@@ -7,7 +7,7 @@
 
   function configFunction ($stateProvider, stateFactory) {
     $stateProvider.state('index', stateFactory('Index', {
-      url:'/',
+      url:'/index',
       resolve: {
         modelPromise: getAll
       }
