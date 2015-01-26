@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('testAngularCmelion.components')
+  angular.module('testAngularCmelion.components.levelOne.levelTwo')
       .controller('levelThreeComponentCtrl', controllerFunction)
       .component('levelThree', componentFunction);
 
