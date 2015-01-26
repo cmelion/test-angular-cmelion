@@ -12,7 +12,7 @@
 
   var app = angular.module('testAngularCmelion', [
   'cmelion.routeProvider',
-  'kennethlynne.componentFactory',
+  'cmelion.componentFactory',
   'ngSymbiosis.utils',
   'ngSymbiosis.repository',
   'ngSymbiosis.model',

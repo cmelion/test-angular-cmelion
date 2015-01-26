@@ -1,4 +1,4 @@
-// Generated on 2015-01-20 using generator-angular-cmelion 0.1.15
+// Generated on 2015-01-26 using generator-angular-cmelion 0.1.19
 'use strict';
 var path = require('path');
 

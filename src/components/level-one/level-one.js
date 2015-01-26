@@ -14,9 +14,6 @@
   function componentFunction () {
     return {
       //overrides
-      templateUrl: 'components/level-one/level-one.html',
-      controller: 'levelOneComponentCtrl',
-      controllerAs: 'vm'
     };
   }
 
